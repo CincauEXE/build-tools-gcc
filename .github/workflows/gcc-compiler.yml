@@ -19,12 +19,12 @@ jobs:
         config:
           - ver: "12"
             type: "arm64"
-            res: "aarch64-zyc-linux-gnu"
+            res: "aarch64-spe-linux-gnu"
             misc: "gcc"
 
           - ver: "12"
             type: "arm"
-            res: "arm-zyc-linux-gnueabi"
+            res: "arm-spe-linux-gnueabi"
             misc: "gcc"
 
           - ver: "info"
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     container: 
-      image: zycromerz/tcdocker:v2
+      image: shinmura27/tcdocker:v2
 
     steps:
       - name: Checkout
@@ -56,8 +56,8 @@ jobs:
           git clone https://${GIT_SECRET_MAIN}@github.com/Clurfe/gcc-builder.git -b gcc/main
           cd gcc-builder
           echo "$(date +"%Y%m%d")" >> last-build.txt
-          git config user.name "Clurfe"
-          git config user.email "zycromerz@gmail.com"
+          git config user.name "Shinka"
+          git config user.email "arielsyafiqri@gmail.com"
           git add last-build.txt
           git commit -sm "update last-build.txt to $(date +"%Y%m%d")"
           git show
